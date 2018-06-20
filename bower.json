@@ -1,0 +1,24 @@
+{
+  "name": "crudapirest-django",
+  "description": "",
+  "main": "",
+  "authors": [
+    "AngelDX <angel.condori@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/AngelDX/SPA_CRUD_APIDjango",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "bootswatch": "^4.1.1",
+    "jquery": "^3.3.1",
+    "components-font-awesome": "^5.0.6",
+    "popper.js": "^1.14.3"
+  }
+}
