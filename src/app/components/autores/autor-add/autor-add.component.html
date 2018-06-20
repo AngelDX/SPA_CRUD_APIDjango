@@ -1,0 +1,31 @@
+<div class="card mt-3">
+  <div class="card-body">
+      <h4 class="text-center">Registro de Cursos</h4>
+      <form #autorForm="ngForm" (ngSubmit)="onSubmit(autorForm)">
+          <input type="hidden" name="id" #id="ngModel" [(ngModel)]="autorService.selectAutor.id">
+          <div class="form-group">
+            <input type="text" class="form-control" name="documento" #name="ngModel"
+            [(ngModel)]="autorService.selectAutor.documento"
+              placeholder="Documento">
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" name="nombre" #name="ngModel"
+              [(ngModel)]="autorService.selectAutor.nombre"
+               placeholder="Nombre">
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control" name="fecha_nac" #name="ngModel"
+            [(ngModel)]="autorService.selectAutor.fecha_nac"
+              placeholder="Fecha de nacimiento">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-plus-circle"></i> Agregar
+            </button>
+            <button class="btn btn-secondary" type="reset" (click)="resetForm(autorForm)">
+                <i class="fas fa-sync-alt"></i> Resetear
+            </button>
+          </div>
+        </form>
+  </div>
+</div>

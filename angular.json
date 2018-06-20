@@ -23,9 +23,16 @@
               "src/assets"
             ],
             "styles": [
+              "bower_components/bootswatch/dist/flatly/bootstrap.css",
+              "bower_components/components-font-awesome/css/fontawesome-all.min.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "bower_components/jquery/dist/jquery.js",
+              "bower_components/popper.js/dist/umd/popper.js",
+              "bower_components/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {

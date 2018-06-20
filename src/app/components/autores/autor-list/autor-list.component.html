@@ -1,0 +1,32 @@
+<div class="card mt-3">
+  <div class="card-body">
+    <h4 class="text-center">Lista de Cursos</h4>
+    <table class="table table-sm table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>CODIGO</th>
+          <th>HORAS</th>
+          <th>OPCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let autor of autores">
+          <td>{{autor.id}}</td>
+          <td>{{autor.documento}}</td>
+          <td>{{autor.nombre}}</td>
+          <td>{{autor.fecha_nac}}</td>
+          <td>
+            <a class="btn btn-secondary text-white" (click)="onEdit(autor)">
+                <i class="far fa-edit"></i>
+            </a>
+            <a class="btn btn-danger text-white" (click)="onDelete(autor.id)">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
