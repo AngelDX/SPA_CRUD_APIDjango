@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Autor } from '../../../models/autor';
 import { AutorService } from '../../../services/autor.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-autor-list',
@@ -10,7 +12,7 @@ import { AutorService } from '../../../services/autor.service';
 export class AutorListComponent implements OnInit {
   private autores: Array<Autor> = [];
 
-  constructor(private autorService: AutorService) { }
+  constructor(private autorService: AutorService,private router:Router,private toastr:ToastrService) { }
 
   ngOnInit() {
     this.getAutores();
@@ -25,6 +27,8 @@ export class AutorListComponent implements OnInit {
 
   onEdit(autor: Autor) {
     this.autorService.selectAutor = Object.assign({}, autor);
+    this.router.navigate(["/autoresAdd"]);
+    
   }
 
   onDelete(id: string) {
@@ -33,8 +37,13 @@ export class AutorListComponent implements OnInit {
         this.getAutores();
         console.log(data);
       });
-      //this.toastr.warning('Registro eliminado correctamente...', 'Curso Removed');
+      this.toastr.warning('Registro eliminado correctamente...', 'Autor Removed');
     }
+  }
+
+  onAdd(){
+    this.autorService.selectAutor=new Autor();
+    this.router.navigate(["/autoresAdd"]);
   }
 
 }

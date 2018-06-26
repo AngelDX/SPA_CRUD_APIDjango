@@ -1,6 +1,6 @@
 <div class="card mt-3">
   <div class="card-body">
-      <h4 class="text-center">Registro de Cursos</h4>
+      <h4 class="text-center">Registro de Autores</h4>
       <form #autorForm="ngForm" (ngSubmit)="onSubmit(autorForm)">
           <input type="hidden" name="id" #id="ngModel" [(ngModel)]="autorService.selectAutor.id">
           <div class="form-group">
@@ -25,6 +25,9 @@
             <button class="btn btn-secondary" type="reset" (click)="resetForm(autorForm)">
                 <i class="fas fa-sync-alt"></i> Resetear
             </button>
+            <button class="btn btn-secondary" type="button" routerLink="/autoresList">
+              <i class="fas fa-hand-point-left"></i> Cancelar
+          </button>
           </div>
         </form>
   </div>

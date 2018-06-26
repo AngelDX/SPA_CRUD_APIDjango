@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AutorService } from '../../../services/autor.service';
 import { Autor } from '../../../models/autor';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-autor-add',
@@ -10,10 +12,10 @@ import { Autor } from '../../../models/autor';
 })
 export class AutorAddComponent implements OnInit {
 
-  constructor(public autorService: AutorService) { }
+  constructor(public autorService: AutorService,private router:Router,private toastr:ToastrService) { }
 
   ngOnInit() {
-    this.resetForm();
+    //this.resetForm();
   }
 
   onSubmit(autorForm: NgForm){
@@ -21,14 +23,16 @@ export class AutorAddComponent implements OnInit {
     if(autorForm.value.id == null){
       this.autorService.insertAutor(autorForm.value).subscribe((response) => {
         console.log(response);
+        this.router.navigate(["/autoresList"]);
       });
     }else{
       this.autorService.updateAutor(autorForm.value.id,autorForm.value).subscribe((response) => {
         console.log(response);
+        this.router.navigate(["/autoresList"]);
       });
     }
     this.resetForm(autorForm);
-    //this.toastr.success('Operación realizada con éxito', 'Product Registered');
+    this.toastr.success('Operación realizada con éxito', 'Autor Registered');
   }
 
   resetForm(autorForm?: NgForm){
